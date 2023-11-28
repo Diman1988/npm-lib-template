@@ -19,7 +19,7 @@ module.exports = [
     },
     output: {
       filename: "bundle.esm.lib.prod.js",
-      path: path.resolve(__dirname, "dist/esm"),
+      path: path.resolve(__dirname, "..", "dist/esm"),
       libraryTarget: "module",
     },
     experiments: {
@@ -43,7 +43,7 @@ module.exports = [
     },
     output: {
       filename: "bundle.cjs.lib.prod.js",
-      path: path.resolve(__dirname, "dist/cjs"),
+      path: path.resolve(__dirname, "..", "dist/cjs"),
       libraryTarget: "commonjs2",
     },
     devtool: "source-map",

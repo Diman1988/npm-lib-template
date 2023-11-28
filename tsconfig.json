@@ -5,6 +5,7 @@
         "sourceMap": true,
         "noImplicitAny": true,
         "strict": true,
+        "declaration": true,
         "lib": [
             "es2021",
             "dom"

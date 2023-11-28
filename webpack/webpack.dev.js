@@ -9,17 +9,19 @@ module.exports = [
       rules: [
         {
           test: /\.ts$/,
-          use: "ts-loader",
           exclude: /node_modules/,
-          options: {
-            configFile: "tsconfig.esm.json",
+          use: {
+            loader: "ts-loader",
+            options: {
+              configFile: "tsconfig.esm.json",
+            },
           },
         },
       ],
     },
     output: {
       filename: "boundle.esm.lib.dev.js",
-      path: path.resolve(__dirname, "dist/esm"),
+      path: path.resolve(__dirname, "..", "dist/esm"),
       libraryTarget: "module",
     },
     experiments: {
@@ -33,17 +35,19 @@ module.exports = [
       rules: [
         {
           test: /\.ts$/,
-          use: "ts-loader",
           exclude: /node_modules/,
-          options: {
-            configFile: "tsconfig.cjs.json",
+          use: {
+            loader: "ts-loader",
+            options: {
+              configFile: "tsconfig.cjs.json",
+            },
           },
         },
       ],
     },
     output: {
       filename: "bundle.cjs.lib.dev.js",
-      path: path.resolve(__dirname, "dist/cjs"),
+      path: path.resolve(__dirname, "..", "dist/cjs"),
       libraryTarget: "commonjs2",
     },
     experiments: {
