@@ -1,0 +1,14 @@
+{
+  "rules": {
+    "@typescript-eslint/no-var-requires": "off",
+    "no-console": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "**/webpack.*.js"
+        ]
+      }
+    ]
+  }
+}

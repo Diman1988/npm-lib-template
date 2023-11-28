@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "outDir": "./dist/",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "strict": true,
+        "declaration": true,
+        "lib": [
+            "es2021",
+            "dom"
+        ],
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "paths": {
+            "@src/*": [
+                "src/*"
+            ],
+        }
+    }
+}

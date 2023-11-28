@@ -1,0 +1,66 @@
+{
+  "name": "npm-lib-template",
+  "version": "0.1.0",
+  "description": "A template for creating libraries with ES6 and CommonJS modules using Webpack.",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    },
+    "./package.json": "./package.json",
+    "./README.md": "./README.md"
+  },
+  "scripts": {
+    "clean": "node scripts/clean-dist.js",
+    "build": "yarn lint && yarn format && yarn build:prod",
+    "build:prod": "yarn clean && webpack --config webpack/webpack.prod.js",
+    "build:dev": "yarn clean && webpack --config webpack/webpack.dev.js && yarn postbuild",
+    "postbuild": "node scripts/clean-package.js && node scripts/clean-maps.js && node scripts/license.js",
+    "format": "prettier --check src",
+    "format:fix": "prettier --write src",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack serve --config webpack/webpack.dev.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Diman1988/npm-lib-template.git"
+  },
+  "keywords": [
+    "npm",
+    "library",
+    "template",
+    "ES6",
+    "CommonJS",
+    "Webpack",
+    "module",
+    "JavaScript",
+    "TypeScript"
+  ],
+  "author": "Diman1988",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Diman1988/npm-lib-template/issues"
+  },
+  "homepage": "https://github.com/Diman1988/npm-lib-template#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.13.1",
+    "@typescript-eslint/parser": "^6.13.1",
+    "eslint": "^8.54.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "prettier": "^3.1.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.2",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-merge": "^5.10.0"
+  }
+}
