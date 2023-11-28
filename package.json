@@ -18,7 +18,7 @@
     "build": "yarn lint && yarn format && yarn build:prod",
     "build:prod": "yarn clean && webpack --config webpack/webpack.prod.js",
     "build:dev": "yarn clean && webpack --config webpack/webpack.dev.js && yarn postbuild",
-    "postbuild": "node scripts/clean-package.js && node scripts/clean-maps.js",
+    "postbuild": "node scripts/clean-package.js && node scripts/clean-maps.js && node scripts/license.js",
     "format": "prettier --check src",
     "format:fix": "prettier --write src",
     "lint": "eslint src --ext .ts",

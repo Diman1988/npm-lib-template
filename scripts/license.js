@@ -12,7 +12,7 @@ function addLicense() {
 
   fs.copyFile(originalPath, distPath, (err) => {
     if (err) throw err;
-    consoleColor('LICENSE copied to dist directory', 'green');
+    consoleColor('LICENSE copied for build', 'green');
   });
 }
 
