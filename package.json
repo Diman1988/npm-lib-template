@@ -2,8 +2,9 @@
   "name": "npm-lib-template",
   "version": "0.1.0",
   "description": "Template generator to initiate general lib config based on es6 and commonjs modules using webpack",
-  "main": "index.ts",
-  "type": "module",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/esm/index.js",
@@ -13,6 +14,10 @@
     "./README.md": "./README.md"
   },
   "scripts": {
+    "build:prod": "webpack --config webpack/webpack.prod.js",
+    "build:dev": "webpack --config webpack/webpack.dev.js",
+    "start": "webpack serve --config webpack/webpack.dev.js",
+    "postbuild": "node scripts/clean-package.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -35,7 +40,9 @@
   "homepage": "https://github.com/Diman1988/npm-lib-template#readme",
   "dependencies": {},
   "devDependencies": {
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.2",
     "webpack": "^5.89.0",
-    "typescript": "^5.3.2"
+    "webpack-cli": "^5.1.4"
   }
 }

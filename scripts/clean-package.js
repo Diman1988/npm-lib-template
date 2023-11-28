@@ -1,0 +1,31 @@
+const fs = require("fs");
+const path = require("path");
+
+function cleanPackageJson() {
+  const originalPath = path.resolve(__dirname, "..", "package.json");
+  const distPath = path.resolve(__dirname, "..", "dist", "package.json");
+
+  fs.readFile(originalPath, "utf8", (err, data) => {
+    if (err) throw err;
+
+    const packageJson = JSON.parse(data);
+
+    delete packageJson.scripts;
+    delete packageJson.devDependencies;
+
+    if (!fs.existsSync(path.dirname(distPath))) {
+      fs.mkdirSync(path.dirname(distPath), { recursive: true });
+    }
+
+    fs.writeFile(
+      distPath,
+      JSON.stringify(packageJson, null, 2),
+      "utf8",
+      (err) => {
+        if (err) throw err;
+      }
+    );
+  });
+}
+
+cleanPackageJson();
