@@ -9,10 +9,12 @@ module.exports = [
       rules: [
         {
           test: /\.ts$/,
-          use: "ts-loader",
           exclude: /node_modules/,
-          options: {
-            configFile: "tsconfig.esm.json",
+          use: {
+            loader: "ts-loader",
+            options: {
+              configFile: "tsconfig.esm.json",
+            },
           },
         },
       ],
@@ -33,10 +35,12 @@ module.exports = [
       rules: [
         {
           test: /\.ts$/,
-          use: "ts-loader",
           exclude: /node_modules/,
-          options: {
-            configFile: "tsconfig.cjs.json",
+          use: {
+            loader: "ts-loader",
+            options: {
+              configFile: "tsconfig.cjs.json",
+            },
           },
         },
       ],
