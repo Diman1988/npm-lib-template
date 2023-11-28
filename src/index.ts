@@ -1,3 +1,3 @@
-export function template() {
-  return "Template lib created with TypeScript";
+export default function template() {
+  return 'Template lib created with TypeScript';
 }

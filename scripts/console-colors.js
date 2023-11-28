@@ -5,16 +5,16 @@ const colors = {
   blue: (str) => `\x1b[34m${str}\x1b[0m`,
 };
 
-function separator(str, length = str.length) {
-  const separator = "-".repeat(length);
+function addSeparator(str, length = str.length) {
+  const separator = '-'.repeat(length);
 
   return `\n${separator}\n${str}\n${separator}\n`;
 }
 
 function consoleColor(str, color) {
-  const colorize = colors[color] || ((str) => str);
+  const colorize = colors[color] || ((sourceStr) => sourceStr);
 
-  return console.log(colorize(separator(str)));
+  return console.log(colorize(addSeparator(str)));
 }
 
 module.exports = { consoleColor };

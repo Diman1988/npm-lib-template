@@ -1,11 +1,11 @@
-const path = require("path");
+const path = require('path');
 
 module.exports = {
-  entry: "./src/index.ts",
+  entry: './src/index.ts',
   resolve: {
     alias: {
-      "@src": path.resolve(__dirname, "src/"),
+      '@src': path.resolve(__dirname, 'src/'),
     },
-    extensions: [".ts", ".js"],
+    extensions: ['.ts', '.js'],
   },
 };
