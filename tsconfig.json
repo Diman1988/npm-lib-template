@@ -4,8 +4,6 @@
         "outDir": "./dist/",
         "sourceMap": true,
         "noImplicitAny": true,
-        "module": "es6",
-        "target": "es5",
         "strict": true,
         "lib": [
             "es2021",
@@ -19,11 +17,5 @@
                 "src/*"
             ],
         }
-    },
-    "include": [
-        "src/**/*"
-    ],
-    "exclude": [
-        "node_modules"
-    ]
+    }
 }
