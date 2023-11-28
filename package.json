@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Template generator to initiate general lib config based on es6 and commonjs modules using webpack",
   "main": "index.ts",
+  "type": "module",
   "exports": {
     ".": {
       "import": "./dist/esm/index.js",
