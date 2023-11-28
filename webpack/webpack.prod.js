@@ -5,6 +5,18 @@ const path = require("path");
 module.exports = [
   merge(common, {
     mode: "production",
+    module: {
+      rules: [
+        {
+          test: /\.ts$/,
+          use: "ts-loader",
+          exclude: /node_modules/,
+          options: {
+            configFile: "tsconfig.esm.json",
+          },
+        },
+      ],
+    },
     output: {
       filename: "bundle.esm.lib.prod.js",
       path: path.resolve(__dirname, "dist/esm"),
@@ -17,6 +29,18 @@ module.exports = [
   }),
   merge(common, {
     mode: "production",
+    module: {
+      rules: [
+        {
+          test: /\.ts$/,
+          use: "ts-loader",
+          exclude: /node_modules/,
+          options: {
+            configFile: "tsconfig.cjs.json",
+          },
+        },
+      ],
+    },
     output: {
       filename: "bundle.cjs.lib.prod.js",
       path: path.resolve(__dirname, "dist/cjs"),
