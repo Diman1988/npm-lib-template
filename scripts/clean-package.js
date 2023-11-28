@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { consoleColor } = require('./console-colors');
 
 function cleanPackageJson() {
   const originalPath = path.resolve(__dirname, '..', 'package.json');
@@ -7,6 +8,8 @@ function cleanPackageJson() {
 
   fs.readFile(originalPath, 'utf8', (err, data) => {
     if (err) throw err;
+
+    consoleColor('Creating package.json for build', 'green');
 
     const packageJson = JSON.parse(data);
 

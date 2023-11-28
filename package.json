@@ -1,7 +1,7 @@
 {
   "name": "npm-lib-template",
   "version": "0.1.0",
-  "description": "Template generator to initiate general lib config based on es6 and commonjs modules using webpack",
+  "description": "A template for creating libraries with ES6 and CommonJS modules using Webpack.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
@@ -16,9 +16,9 @@
   "scripts": {
     "clean": "node scripts/clean-dist.js",
     "build": "yarn lint && yarn format && yarn build:prod",
-    "build:prod": "yarn clean && webpack --config webpack/webpack.prod.js && yarn postbuild",
+    "build:prod": "yarn clean && webpack --config webpack/webpack.prod.js",
     "build:dev": "yarn clean && webpack --config webpack/webpack.dev.js && yarn postbuild",
-    "postbuild": "node scripts/clean-package.js",
+    "postbuild": "node scripts/clean-package.js && node scripts/clean-maps.js",
     "format": "prettier --check src",
     "format:fix": "prettier --write src",
     "lint": "eslint src --ext .ts",
@@ -32,11 +32,14 @@
   },
   "keywords": [
     "npm",
-    "webpack",
     "library",
-    "lib",
-    "generator",
-    "init"
+    "template",
+    "ES6",
+    "CommonJS",
+    "Webpack",
+    "module",
+    "JavaScript",
+    "TypeScript"
   ],
   "author": "Diman1988",
   "license": "ISC",
