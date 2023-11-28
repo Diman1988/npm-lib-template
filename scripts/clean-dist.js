@@ -1,12 +1,23 @@
-const fs = require('fs');
+const fs = require('fs').promises;
 const path = require('path');
 const { consoleColor } = require('./console-colors');
 
 const distPath = path.join(__dirname, '..', 'dist');
 
-if (fs.existsSync(distPath)) {
-  fs.rmdirSync(distPath, { recursive: true });
-  consoleColor(`The directory ${distPath} has been deleted!`, 'green');
-} else {
-  consoleColor(`The directory ${distPath} does not exist. Nothing to clean.`, 'red');
-}
+consoleColor(`Initiating build process`, 'yellow');
+
+fs.access(distPath)
+  .then(() => {
+    return fs.rm(distPath, { recursive: true, force: true });
+  })
+  .then(() => {
+    consoleColor(`Successfully deleted the directory: ${distPath}`, 'green');
+  })
+  .catch((error) => {
+    if (error.code === 'ENOENT') {
+      consoleColor(`No directory found at: ${distPath}`, 'red');
+      consoleColor(`Directory will be created: ${distPath}`, 'blue');
+    } else {
+      console.error(error);
+    }
+  });

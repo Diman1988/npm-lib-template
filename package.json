@@ -14,13 +14,17 @@
     "./README.md": "./README.md"
   },
   "scripts": {
-    "build:prod": "webpack --config webpack/webpack.prod.js",
-    "build:dev": "webpack --config webpack/webpack.dev.js",
-    "start": "webpack serve --config webpack/webpack.dev.js",
-    "postbuild": "node scripts/clean-package.js",
     "clean": "node scripts/clean-dist.js",
+    "build": "yarn lint && yarn format && yarn build:prod",
+    "build:prod": "yarn clean && webpack --config webpack/webpack.prod.js && yarn postbuild",
+    "build:dev": "yarn clean && webpack --config webpack/webpack.dev.js && yarn postbuild",
+    "postbuild": "node scripts/clean-package.js",
+    "format": "prettier --check src",
+    "format:fix": "prettier --write src",
     "lint": "eslint src --ext .ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint:fix": "eslint src --ext .ts --fix",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack serve --config webpack/webpack.dev.js"
   },
   "repository": {
     "type": "git",
