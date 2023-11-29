@@ -13,5 +13,27 @@
   ],
   "rules": {
     "prettier/prettier": "error"
+  },
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+          [
+            "@src",
+            "./src"
+          ]
+        ],
+        "extensions": [
+          ".ts",
+          ".js"
+        ]
+      },
+      "node": {
+        "extensions": [
+          ".js",
+          ".ts"
+        ]
+      }
+    }
   }
 }
