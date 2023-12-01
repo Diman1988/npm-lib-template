@@ -8,7 +8,7 @@ const colors = {
 function addSeparator(str, length = str.length) {
   const separator = '-'.repeat(length);
 
-  return `\n${separator}\n${str}\n${separator}\n`;
+  return `${separator}\n${str}\n${separator}`;
 }
 
 function consoleColor(str, color) {
