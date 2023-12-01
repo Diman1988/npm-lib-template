@@ -2,13 +2,34 @@
   "name": "npm-lib-template",
   "version": "0.1.0",
   "description": "A template for creating libraries with ES6 and CommonJS modules using Webpack.",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/types/index.d.ts",
+  "keywords": [
+    "npm",
+    "library",
+    "template",
+    "ES6",
+    "CommonJS",
+    "Webpack",
+    "module",
+    "JavaScript",
+    "TypeScript"
+  ],
+  "author": "Diman1988",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Diman1988/npm-lib-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Diman1988/npm-lib-template/issues"
+  },
+  "homepage": "https://github.com/Diman1988/npm-lib-template#readme",
+  "license": "MIT",
+  "main": "dist/cjs/bundle.lib.cjs.js",
+  "module": "dist/esm/bundle.lib.esm.js",
+  "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js"
+      "import": "./dist/esm/bundle.lib.esm.js",
+      "require": "./dist/cjs/bundle.lib.cjs.js"
     },
     "./package.json": "./package.json",
     "./README.md": "./README.md"
@@ -23,30 +44,9 @@
     "format:fix": "prettier --write src",
     "lint": "eslint src --ext .ts",
     "lint:fix": "eslint src --ext .ts --fix",
-    "test": "jest --coverage",
-    "start": "webpack serve --config webpack/webpack.dev.js"
+    "test": "jest --coverage --passWithNoTests",
+    "start": "webpack --watch --config webpack/webpack.dev.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Diman1988/npm-lib-template.git"
-  },
-  "keywords": [
-    "npm",
-    "library",
-    "template",
-    "ES6",
-    "CommonJS",
-    "Webpack",
-    "module",
-    "JavaScript",
-    "TypeScript"
-  ],
-  "author": "Diman1988",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Diman1988/npm-lib-template/issues"
-  },
-  "homepage": "https://github.com/Diman1988/npm-lib-template#readme",
   "dependencies": {},
   "devDependencies": {
     "@types/jest": "^29.5.10",
